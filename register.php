@@ -1,6 +1,6 @@
-<?php
-
-
+<?php 
+    include("includes/handlers/register-handler.php");
+    include("includes/handlers/login-handler.php");
 ?>
 
 <html lang="en">
@@ -12,7 +12,7 @@
 </head>
 <body>
     <div id="inputContainer"> 
-        <form id="loginForm" action="regiser.php" method="POST">
+        <form id="loginForm" action="register.php" method="POST">
             <h2>Login to your Account</h2>
             <p>
                 <label for="loginUserName">Username: </label>
@@ -26,7 +26,7 @@
             <button type="submit" name="loginButton">Log In</button>
         </form>
 
-        <form id="registerForm" action="regiser.php" method="POST">
+        <form id="registerForm" action="register.php" method="POST">
             <h2>Create your Free Account</h2>
             <p>
                 <label for="userName">Username: </label>
@@ -54,7 +54,7 @@
             </p>
             <p> 
                 <label for="password2">Confirm Password: </label>
-                <input type="password2" id="password2" name="password" required>
+                <input type="password2" id="password2" name="password2" required>
             </p>
 
             <button type="submit" name="registerButton">Sign Up</button>
