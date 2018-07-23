@@ -1,4 +1,5 @@
 <?php 
+    include("includes/config.php");
     include("includes/classes/Account.php");
     include("includes/classes/Constants.php");
 
@@ -7,6 +8,12 @@
 
     include("includes/handlers/register-handler.php");
     include("includes/handlers/login-handler.php");
+
+    function getInputValue($name) {
+        if(isset($_POST[$name])) {
+            echo $_POST[$name];
+        }
+    }
 ?>
 
 <html lang="en">
@@ -35,29 +42,29 @@
         <form id="registerForm" action="register.php" method="POST">
             <h2>Create your Free Account</h2>
             <p>
-                <?php echo $account->getError(Constants::$userNameCharacters); ?>
+                <?php echo $account->getError(Constants::$userNameCharacters) ?>
                 <label for="userName">Username: </label>
-                <input id="userName" name="userName" type="text" placeHolder="e.g. Dimebag Darrell" required>
+                <input id="userName" name="userName" type="text" value="<?php getInputValue('userName') ?>" placeHolder="e.g. Dimebag Darrell" required>
             </p>
             <p>
                 <?php echo $account->getError(Constants::$firstNameCharacters); ?>
                 <label for="firstName">First Name: </label>
-                <input id="firstName" name="firstName" type="text" placeHolder="Dave" required>
+                <input id="firstName" name="firstName" type="text" value="<?php getInputValue('firstName') ?>" placeHolder="Dave" required>
             </p>
             <p>
                 <?php echo $account->getError(Constants::$lastNameCharacters); ?>
                 <label for="lastName">Last Name: </label>
-                <input id="lastName" name="lastName" type="text" placeHolder="Williams" required>
+                <input id="lastName" name="lastName" type="text" value="<?php getInputValue('lastName') ?>" placeHolder="Williams" required>
             </p>
             <p>
                 <?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
                 <?php echo $account->getError(Constants::$emailInvalid); ?>
                 <label for="email">Email: </label>
-                <input id="email" name="email" type="text" placeHolder="cowboysfromhell@gmail.com" required>
+                <input id="email" name="email" type="text" value="<?php getInputValue('email') ?>" placeHolder="cowboysfromhell@gmail.com" required>
             </p>
             <p>
                 <label for="email2">Confirm Email: </label>
-                <input id="email2" name="email2" type="text" placeHolder="cowboysfromhell@gmail.com" required>
+                <input id="email2" name="email2" type="text" value="<?php getInputValue('email2') ?>" placeHolder="cowboysfromhell@gmail.com" required>
             </p>
             <p>
                 <?php echo $account->getError(Constants::$passwordsDoNotMatch); ?>
