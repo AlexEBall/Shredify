@@ -1,3 +1,17 @@
+<?php
+    // reference to the session start
+    include("includes/config.php");
+    // log out manually
+    // session_destroy();
+
+    if(isset($_SESSION['userLoggedIn'])) {
+        $userLoggedIn = $_SESSION['userLoggedIn'];
+    } else {
+        header("Location: register.php");
+    }
+
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
