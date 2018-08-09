@@ -105,3 +105,8 @@ html, body {
     font-size: 12px;
     font-weight: bold;
 }
+
+#regiseterForm,
+#loginForm {
+    display: none;
+}
