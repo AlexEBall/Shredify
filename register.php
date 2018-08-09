@@ -27,13 +27,13 @@
     <div class="background">
         <div class="loginContainer">
 
-            <div id="inputContainer"> 
+            <div class="inputContainer"> 
                 <form id="loginForm" action="register.php" method="POST">
-                    <h2>Login to your Account</h2>
+                    <h2 class="heading-2">Login to your Account</h2>
                     <p>
                         <?php echo $account->getError(Constants::$loginFailed) ?>
                         <label for="loginUserName">Username: </label>
-                        <input id="loginUserName" name="loginUserName" type="text" placeHolder="e.g. Dimebag Darrell" required>
+                        <input class="input" id="loginUserName" name="loginUserName" type="text" placeHolder="e.g. Dimebag Darrell" required>
                     </p>
                     <p> 
                         <label for="loginPassword">Password: </label>
@@ -41,10 +41,14 @@
                     </p>
 
                     <button type="submit" name="loginButton">Log In</button>
+
+                    <div class="hasAccountText">
+                        <span id="hideLogin">Don't have an account yet? Signup here.</span>
+                    </div>
                 </form>
 
                 <form id="registerForm" action="register.php" method="POST">
-                    <h2>Create your Free Account</h2>
+                    <h2 class="heading-2">Create your Free Account</h2>
                     <p>
                         <?php echo $account->getError(Constants::$userNameCharacters) ?>
                         <?php echo $account->getError(Constants::$userNameTaken) ?>
@@ -66,11 +70,11 @@
                         <?php echo $account->getError(Constants::$emailInvalid); ?>
                         <?php echo $account->getError(Constants::$emailTaken); ?>
                         <label for="email">Email: </label>
-                        <input id="email" name="email" type="text" value="<?php getInputValue('email') ?>" placeHolder="cowboysfromhell@gmail.com" required>
+                        <input id="email" name="email" type="email" value="<?php getInputValue('email') ?>" placeHolder="cowboysfromhell@gmail.com" required>
                     </p>
                     <p>
                         <label for="email2">Confirm Email: </label>
-                        <input id="email2" name="email2" type="text" value="<?php getInputValue('email2') ?>" placeHolder="cowboysfromhell@gmail.com" required>
+                        <input id="email2" name="email2" type="email" value="<?php getInputValue('email2') ?>" placeHolder="cowboysfromhell@gmail.com" required>
                     </p>
                     <p>
                         <?php echo $account->getError(Constants::$passwordsDoNotMatch); ?>
@@ -81,10 +85,14 @@
                     </p>
                     <p> 
                         <label for="password2">Confirm Password: </label>
-                        <input type="password2" id="password2" name="password2" required>
+                        <input type="password" id="password2" name="password2" required>
                     </p>
 
                     <button type="submit" name="registerButton">Sign Up</button>
+
+                    <div class="hasAccountText">
+                        <span id="hideRegister">Already have an account? Log in here.</span>
+                    </div>
                 </form>
             </div>
 
