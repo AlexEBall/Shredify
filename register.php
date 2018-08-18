@@ -56,7 +56,7 @@
                     <p>
                         <?php echo $account->getError(Constants::$loginFailed) ?>
                         <label for="loginUserName">Username: </label>
-                        <input class="input" id="loginUserName" name="loginUserName" type="text" placeHolder="e.g. Dimebag Darrell" required>
+                        <input class="input" id="loginUserName" name="loginUserName" type="text" placeHolder="e.g. Dimebag Darrell" value="<?php getInputValue('loginUserName') ?>" required>
                     </p>
                     <p> 
                         <label for="loginPassword">Password: </label>
@@ -117,6 +117,16 @@
                         <span id="hideRegister">Already have an account? Log in here.</span>
                     </div>
                 </form>
+            </div>
+
+            <div class="loginText">
+                <h1>Melt your ears!</h1>
+                <h2>Listen to loads of blistering tunes</h2>
+                <ul>
+                    <li>Everything from the classics to the technical</li>
+                    <li>Create your own playlist</li>
+                    <li>Follow the best shredders</li>
+                </ul>
             </div>
 
         </div>

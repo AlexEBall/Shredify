@@ -5,8 +5,8 @@ html, body {
 }
 
 .background {
-    background-color: #000;
-    background-image: url('../images/bg3.jpg');
+    background-color: #1C0F13;
+    background-image: url('../images/bg2.jpg');
     background-position: center;
     background-size: cover;
     display: table;
@@ -15,7 +15,7 @@ html, body {
 }
 
 .loginContainer * {
-    color: #fff;
+    color: #eaeaea;
     font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     font-weight: normal;
     line-height: 1em;
@@ -30,32 +30,33 @@ html, body {
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #fff;
+    color:    #eaeaea;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #fff;
+   color:    #eaeaea;
    opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #fff;
+   color:    #eaeaea;
    opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #fff;
+   color:    #eaeaea;
 }
 ::-ms-input-placeholder { /* Microsoft Edge */
-   color:    #fff;
+   color:    #eaeaea;
 }
 
 ::placeholder { /* Most modern browsers support this now. */
-   color:    #fff;
+   color:    #eaeaea;
 }
 
 .inputContainer {
     width: 400px;
+    /* margin-left: 90px; */
     padding: 45px;
     float: left;
-    border-right: 1px solid #000;
+    border-right: 1px solid #eaeaea;
 }
 
 .heading-2 {
@@ -68,23 +69,24 @@ html, body {
     display: block;
     background-color: transparent;
     border: 0;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #eaeaea;
     height: 27px;
     line-height: 27px;
     width: 100%;
 }   
 
 .inputContainer label {
-    color: #000;
+    color: #F0A202;
     font-size: 13px;
     margin-top: 15px;
+    display: block;
 }
 
 .inputContainer button {
     background-color: transparent;
-    border: 2px solid #000;
+    border: 2px solid #F0A202;
     border-radius: 250px;
-    color: #fff;
+    color: #eaeaea;
     display: block;
     font-size: 14px;
     letter-spacing: 1px;
@@ -104,9 +106,43 @@ html, body {
 .hasAccountText span {
     font-size: 12px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 #regiseterForm,
 #loginForm {
     display: none;
+}
+
+.loginText {
+    padding: 45px;
+    display: table-cell;
+}
+
+.loginText h1 {
+    color: #F0A202;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.loginText h2 {
+    margin: 35px 0;
+}
+
+.loginText ul {
+    padding: 0;
+}
+
+.loginText li {
+    font-size: 20px;
+    list-style-type: none; 
+    padding: 5px 30px;
+    background: url(../images/icons/icons8-skull.png) no-repeat 0 0;
+}
+
+.inputContainer .errorMessage {
+    color: #CF5C36;
+    font-size: 12px;
+    display: block;
+    
 }
