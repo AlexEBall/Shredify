@@ -23,7 +23,17 @@
 <body>
     
     <div class="nowPlayingBarContainer">
+        <div class="nowPlayingBar">
+            <div class="nowPlayingLeft">
 
+            </div>
+            <div class="nowPlayingCenter">
+                
+            </div>
+            <div class="nowPlayingRight">
+                
+            </div>
+        </div>
     </div>
 
 </body>
