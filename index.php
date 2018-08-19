@@ -28,7 +28,13 @@
 
             </div>
             <div class="nowPlayingCenter">
-                
+                <div class="playerControls content">
+                    <div class="buttons">
+                        <button class="controlButton shuffle" title="Shuffle Button">
+                            <img src="assets/images/icons/icons8-shuffle-not-active.png" alt="shuffle" />
+                        </button>
+                    </div>
+                </div>
             </div>
             <div class="nowPlayingRight">
                 
