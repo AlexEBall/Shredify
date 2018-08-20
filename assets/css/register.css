@@ -24,7 +24,7 @@ html, body {
 
 .loginContainer {
     width: 80%;
-    margin: 0 auto;
+    margin: 100px auto;
     position: relative;
     max-width: 1024px;
 }
