@@ -1,3 +1,8 @@
+* {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #eaeaea;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -26,6 +31,11 @@ html, body {
     min-width: 100px;
 }
 
+.nowPlayingRight {
+    position: relative;
+    margin-top: 16px;
+}
+
 .nowPlayingCenter {
     width: 40%;
     max-width: 700px;
@@ -36,10 +46,124 @@ html, body {
 
 .nowPlayingBar .content {
     width: 100%;
+    height: 57px;
 }
 
 .playerControls .buttons {
     margin: 0 auto;
     display: table;
+}
 
+.controlButton {
+    background-color: transparent;
+    border: none;
+    vertical-align: middle;
+}
+
+.controlButton:hover {
+    cursor: pointer;
+}
+
+.controlButton img {
+    width: 20px;
+    height: 20px;
+}
+
+.shuffle img {
+    width: 16px;
+    height: 16px;
+}
+
+.play img,
+.pause img {
+    width: 32px;
+    height: 32px;
+}
+
+.repeat img {
+    width: 24px;
+    height: 24px;
+}
+
+.progressTime {
+    color: black;
+    font-size: 11px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.progressBar {
+    width: 100%;
+    height: 12px;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.playbackBar {
+    display: flex;
+}
+
+.progressBarBg {
+    background-color : #1C0F13;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.progress {
+    background-color: #eaeaea;
+    height: 4px;
+    width: 0;
+    border-radius: 2px;
+}
+
+.playbackBar .progressBar {
+    margin-top: 4px;
+}
+
+.nowPlayingLeft .albumArtwork {
+    height: 100%;
+    max-width: 57px;
+    margin-right: 15px;
+    float: left;
+    background-size: cover;
+}
+
+.trackInfo {
+    display: table;
+}
+
+.trackName {
+    margin: 6px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.artistName span {
+    font-size: 14px;
+    color: #1C0F13
+}
+
+.volumeBar {
+    width: 180px;
+    position: absolute;
+    right: 0;
+}
+
+.volumeBar .progressBar {
+    width: 125px;
+}
+
+.topContainer {
+    min-height: 100%;
+    width: 100%;
+}
+
+.navBarContainer {
+    background-color: #1C0F13;
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
