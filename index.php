@@ -1,43 +1,22 @@
-<?php
-    // reference to the session start
-    include("includes/config.php");
-    // log out manually
-    // session_destroy();
+<?php include("includes/header.php"); ?>
 
-    if(isset($_SESSION['userLoggedIn'])) {
-        $userLoggedIn = $_SESSION['userLoggedIn'];
-    } else {
-        header("Location: register.php");
-    }
+    <h1 class="pageHeadingBig">Shred On!</h1>
+    <div class="gridViewContainer">
+        <?php 
+            // $con is the connection to db
+            $albumQuery = mysqli_query($con, "SELECT * FROM albums ORDER BY RAND() LIMIT 3");
+                // store all albums in $row
+            while($row = mysqli_fetch_array($albumQuery)) {
+                // . is used to append strings in php
+                echo 
+                    '<div class="gridViewItem">
+                        <img src="' . $row['artworkPath'] .'" alt="albums">
 
-?>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/index.css">
-</head>
-<body>
-
-    <div class="mainContainer">
-
-        <div class="topContainer">
-            <?php include("includes/navBarContainer.php"); ?>
-
-            <div class="mainViewContainer">
-                <div class="mainContent">
-                    
-                </div>
-            </div>
-        </div>
-
-        <?php include("includes/nowPlayingBar.php"); ?>
-
+                        <div class="gridViewInfo">'
+                            . $row['title'] .
+                        '</div>
+                    </div>';
+            }
+        ?>
     </div>
-    
-
-</body>
-</html>
+<?php include("includes/footer.php"); ?>
