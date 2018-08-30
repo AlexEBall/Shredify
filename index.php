@@ -10,11 +10,13 @@
                 // . is used to append strings in php
                 echo 
                     '<div class="gridViewItem">
-                        <img src="' . $row['artworkPath'] .'" alt="albums">
+                        <a href="album.php?id=' . $row['id'] .'">
+                            <img src="' . $row['artworkPath'] .'" alt="albums">
 
-                        <div class="gridViewInfo">'
-                            . $row['title'] .
-                        '</div>
+                            <div class="gridViewInfo">'
+                                . $row['title'] .
+                            '</div>
+                        </a>
                     </div>';
             }
         ?>
