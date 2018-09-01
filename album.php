@@ -21,4 +21,36 @@
     </div>
 </div>
 
+<div class="trackListContainer">
+    <ul class="trackList">
+        <?php
+            $songIdArray = $album->getSongIds();
+
+            $i = 1;
+
+            foreach($songIdArray as $songId) {
+                // echo $i;
+                $albumSong = new Song($con, $songId);
+                // echo $albumSong;
+                $albumArtist = $albumSong->getArtist();
+
+                echo "<li class='trackListRow'>
+                        <div class='trackCount'>
+                            <img class='play' src='assets/images/icons/icons8-circled_play_filled.png'>
+                            <span class='trackNumber'>$i</span>
+                        </div>
+
+                        <div class='trackInfo'>
+                            <span class='trackName'>" . $albumSong->getTitle() . "</span>
+                            <span class='artistName'>" . $albumArtist->getName() . "</span>
+                        </div>
+                    </li>";
+
+                $i++;
+
+            }
+        ?>
+    </ul>
+</div>
+
 <?php include("includes/footer.php"); ?>
