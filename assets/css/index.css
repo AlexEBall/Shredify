@@ -293,3 +293,82 @@ body {
 .rightSection p {
     color: #F0A202;
 }
+
+.trackList {
+    padding: 0;
+}
+
+.trackListRow {
+    height: 40px;
+    padding: 15px 10px;
+    list-style: none;
+}
+
+.trackListRow {
+    color: #eaeaea;
+    font-weight: 200;
+}
+
+.trackListRow:hover {
+    background-color: #616163;
+}
+
+.trackListRow .trackCount {
+    width: 8%;
+    float: left;
+}
+
+.trackListRow .trackCount img {
+    width: 20px;
+    visibility: hidden;
+    position: absolute;
+    cursor: pointer;
+}
+
+.trackListRow:hover .trackCount img {
+    visibility: visible;
+}
+
+.trackListRow .trackCount span {
+    visibility: visible;
+}
+
+.trackListRow:hover .trackCount span {
+    visibility: hidden;
+}
+
+.trackListRow .trackName {
+    color: #F0A202;
+    margin-bottom: 10px;
+}
+
+.trackInfo {
+    width: 75%;
+    float: left;
+}
+
+.trackInfo span {
+    display: block;
+}
+
+.trackOptions {
+    width: 5%;
+    float: left;
+    text-align: right;
+}
+
+.trackOptions img {
+    width: 15px;
+    visibility: hidden;
+}
+
+.trackListRow:hover .trackOptions img {
+    visibility: visible;
+    cursor: pointer;
+}
+
+.trackDuration {
+    width: 12%;
+    float: left;
+    text-align: right;
+}

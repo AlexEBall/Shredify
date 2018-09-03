@@ -44,6 +44,14 @@
                             <span class='trackName'>" . $albumSong->getTitle() . "</span>
                             <span class='artistName'>" . $albumArtist->getName() . "</span>
                         </div>
+
+                        <div class='trackOptions'>
+                            <img class='optionsButton' src='assets/images/icons/icons8-skull.png' alt='options'>
+                        </div>
+
+                        <div class='trackDuration'>
+                            <span class='dutation'>" . $albumSong->getDuration() . "</span>
+                        </div>
                     </li>";
 
                 $i++;

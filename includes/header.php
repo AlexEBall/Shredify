@@ -22,6 +22,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/index.css">
+    <script src="assets/js/scripts.js"></script>
 </head>
 <body>
 
