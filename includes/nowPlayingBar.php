@@ -1,3 +1,29 @@
+<?php
+    $songQuery = mysqli_query($con, "SELECT id FROM songs ORDER BY RAND() LIMIT 10");
+    $resultArray = array();
+    while($row = mysqli_fetch_array($songQuery)) {
+        array_push($resultArray, $row['id']);
+    }
+
+    $jsonArray = json_encode($resultArray);
+?>
+
+<script>
+    $(document).ready(function() {
+        currentPlayList = <?php echo $jsonArray; ?>;
+        audioElement = new Audio();
+        setTrack(currentPlayList[0], currentPlayList, false);
+    });
+
+    function setTrack(trackId, newPlayList, play) {
+        audioElement.setTrack("assets/music/bensound-highoctane.mp3");
+
+        if(play) {
+            audioElelment.play();
+        }
+    }
+</script>
+
 <div class="nowPlayingBarContainer">
     <div class="nowPlayingBar">
         <div class="nowPlayingLeft">
