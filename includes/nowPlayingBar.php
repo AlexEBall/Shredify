@@ -13,7 +13,52 @@
         currentPlayList = <?php echo $jsonArray; ?>;
         audioElement = new Audio();
         setTrack(currentPlayList[0], currentPlayList, false);
+
+        $(".playbackBar .progressBar").mousedown(function() {
+            mouseDown = true;
+        });
+
+        $(".playbackBar .progressBar").mousemove(function(e) {
+            if (mouseDown) {
+                // set time of song, depending on position of mouse
+                timeFromOffset(e, this);
+            }
+        });
+
+        $(".playbackBar .progressBar").mouseup(function(e) {
+            timeFromOffset(e, this);
+        });
+
+        $(document).mouseup(function() {
+            mouseDown = false;
+        });
+
+        $(".volumeBar .progressBar").mousedown(function() {
+            mouseDown = true;
+        });
+
+        $(".volumeBar .progressBar").mousemove(function(e) {
+            if (mouseDown) {
+                var percentage = e.offsetX / $(this).width();
+                if (percentage >-= 0 && percentage <= 1) {
+                    audioElement.audio.volume = percentage;
+                }
+            }
+        });
+
+        $(".volumeBar .progressBar").mouseup(function(e) {
+            var percentage = e.offsetX / $(this).width();
+                if (percentage >= 0 && percentage <= 1) {
+                    audioElement.audio.volume = percentage;
+                }
+        });
     });
+
+    function timeFromOffset(mouse, progressBar) {
+        var percentage = mouse.offsetX / $(progressBar).width() * 100;
+        var seconds = audioElement.audio.duration * (percentage / 100);
+        audioElement.setTime(seconds);
+    }
 
     function setTrack(trackId, newPlayList, play) {
         $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
