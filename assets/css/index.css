@@ -135,17 +135,17 @@ body {
     background-size: cover;
 }
 
-.trackInfo {
+.trackInfoNP {
     display: table;
 }
 
-.trackName {
+.trackNameNP {
     margin: 6px 0;
     display: inline-block;
     width: 100%;
 }
 
-.artistName span {
+.artistNameNP span {
     font-size: 14px;
     color: #1C0F13
 }

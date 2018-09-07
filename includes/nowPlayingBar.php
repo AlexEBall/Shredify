@@ -16,11 +16,45 @@
     });
 
     function setTrack(trackId, newPlayList, play) {
-        audioElement.setTrack("assets/music/bensound-highoctane.mp3");
+        $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
+            var track = JSON.parse(data);
+
+            $(".trackNameNP span").text(track.title);
+
+            $.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
+                var artist = JSON.parse(data);
+
+                $(".artistNameNP span").text(artist.name);
+            });
+
+            $.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
+                var album = JSON.parse(data);
+
+                $(".albumLink img").attr("src", album.artworkPath);
+            });
+
+            audioElement.setTrack(track);
+            playSong();
+        });
 
         if(play) {
-            audioElelment.play();
+            audioElement.play();
         }
+    }
+
+    function playSong() {
+        if (audioElement.audio.currentTime === 0) {
+            $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id });
+        }
+        $(".controlButton.play").hide();
+        $(".controlButton.pause").show();
+        audioElement.play();
+    }
+
+    function pauseSong() {
+        $(".controlButton.play").show();
+        $(".controlButton.pause").hide();
+        audioElement.pause();
     }
 </script>
 
@@ -29,16 +63,16 @@
         <div class="nowPlayingLeft">
             <div class="content">
                 <span class="albumLink">
-                    <img class="albumArtwork" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/Megadeth-RustInPeace.jpg/220px-Megadeth-RustInPeace.jpg" alt="album" />
+                    <img class="albumArtwork" src="" alt="album" />
                 </span>
 
-                <div class="trackInfo">
-                    <span class="trackName">
-                        <span>Tornado of Souls</span>
+                <div class="trackInfoNP">
+                    <span class="trackNameNP">
+                        <span></span>
                     </span>
 
-                    <span class="artistName">
-                        <span>Megadeth</span>
+                    <span class="artistNameNP">
+                        <span></span>
                     </span>
                 </div>
             </div>
@@ -54,11 +88,11 @@
                         <img src="assets/images/icons/icons8-skip_to_start.png" alt="previous" />
                     </button>
 
-                    <button class="controlButton play" title="Play Button">
+                    <button class="controlButton play" title="Play Button" onclick="playSong()">
                         <img src="assets/images/icons/icons8-play.png" alt="play" />
                     </button>
 
-                    <button class="controlButton pause" title="Pause Button" style="display: none;">
+                    <button class="controlButton pause" title="Pause Button" style="display: none;" onclick="pauseSong()">
                         <img src="assets/images/icons/icons8-pause-not-active.png" alt="pause" />
                     </button>
 
