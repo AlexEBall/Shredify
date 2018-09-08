@@ -13,6 +13,11 @@
         currentPlayList = <?php echo $jsonArray; ?>;
         audioElement = new Audio();
         setTrack(currentPlayList[0], currentPlayList, false);
+        updateVolumeProgressBar(audioElement.audio);
+
+        $(".nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", function(e) {
+            e.preventDefault();
+        })
 
         $(".playbackBar .progressBar").mousedown(function() {
             mouseDown = true;
@@ -40,7 +45,7 @@
         $(".volumeBar .progressBar").mousemove(function(e) {
             if (mouseDown) {
                 var percentage = e.offsetX / $(this).width();
-                if (percentage >-= 0 && percentage <= 1) {
+                if (percentage >= 0 && percentage <= 1) {
                     audioElement.audio.volume = percentage;
                 }
             }
@@ -60,8 +65,21 @@
         audioElement.setTime(seconds);
     }
 
+    function nextSong() {
+        if(currentIndex === currentPlayList.length - 1) {
+            currentIndex = 0;
+        } else {
+            currentIndex++;
+        }
+
+        var trackToPlay = currentPlayList[currentIndex];
+        setTrack(trackToPlay, currentPlayList, true);
+    }
+
     function setTrack(trackId, newPlayList, play) {
+        
         $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
+            currentIndex = currentPlayList.indexOf(trackId);
             var track = JSON.parse(data);
 
             $(".trackNameNP span").text(track.title);
